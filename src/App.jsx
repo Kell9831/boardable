@@ -12,6 +12,7 @@ function App() {
   return (
     <div>
       <h1>Test de hola mundo</h1>
+      <p>Esta es una prueba</p>
       <pre>{JSON.stringify(message, null, 2)}</pre>
     </div>
   );
