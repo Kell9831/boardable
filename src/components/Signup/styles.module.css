@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    width: 1440px;
+    padding: var(--spacing-24, 96px) 0px var(--spacing-24, 440px) 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-8, 32px);
+}
+
+.title {
+  color: var(--foreground, #171717);
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 36px;
+  width: var(--width-xs, 320px);
+}
+
+.form {
+    display: flex;
+    width: var(--width-xs, 320px);
+    max-width: var(--width-xs, 320px);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-4, 16px);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2, 8px);
+    align-self: stretch;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2, 8px);
+    align-self: stretch;
+    color: var(--foreground, #171717);
+}
+
+.input {
+  display: flex;
+  height: 24px;
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: var(--rounded-md, 6px);
+  border: 1px solid var(--border, #d4d4d4);
+  background: var(--background, #fff);
+}
+
+.input::placeholder {
+  color: hsl(0, 0%, 45%);
+}
+
+.button {
+    display: flex;
+    height: 44px;
+    padding: var(--spacing-2, 8px) var(--spacing-8, 32px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2, 8px);
+    align-self: stretch;
+}
+
+.error {
+  font-size: 18px;
+  color: tomato;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.link {
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Centra verticalmente los elementos */
+  color: var(--primary, #6d28d9);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.link img {
+  margin-left: 5px; 
+  width: 20px; 
+  height: 20px; 
+}
