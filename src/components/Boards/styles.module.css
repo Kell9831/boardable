@@ -1,0 +1,59 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4, 16px);
+  margin-bottom: 40px;
+}
+
+.select p {
+  color: var(--foreground, #171717);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.selec {
+  display: flex;
+  width: 155px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2, 8px);
+  border-radius: var(--rounded-md, 6px);
+  border: 1px solid var(--border, #d4d4d4);
+  background: var(--background, #fff);
+}
+
+.selec label {
+  color: var(--foreground, #171717);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 100% */
+}
+
+.selec option {
+  color: var(--foreground, #171717);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 171.429% */
+}
+
+.formfield {
+  display: flex;
+  width: 155px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2, 8px);
+}
+
+.boards {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 32px var(--spacing-8, 32px);
+  align-self: stretch;
+  flex-wrap: wrap;
+}

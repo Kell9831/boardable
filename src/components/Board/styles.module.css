@@ -1,0 +1,27 @@
+.note {
+    display: flex;
+    width: 256px;
+    height: 144px;
+    padding: var(--spacing-4, 16px);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--rounded-md, 6px);
+
+}
+  
+  
+  .title {
+    color: #171717;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; 
+  }
+  
+  .body {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+  }
+  
+  
