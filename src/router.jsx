@@ -5,6 +5,7 @@ import { authProvider } from "./auth";
 import App , { action as rootAction, loader as rootLoader } from "./components/App/App";
 import Error from "./components/error/error";
 import Boards from "./components/Boards";
+import Account from "./components/Account";
 
 
 
@@ -40,6 +41,19 @@ export const router = createBrowserRouter([
     element: <Signup />,
     action: signupAction,
     //loader: signupLoader ,
-  }
+  },
+  {
+    path: "/account",
+    element: <App />,
+    loader: rootLoader,
+    action: rootAction,
+    error:<Error/>,
+    children: [
+      {
+        index: true,
+        element: <Account />,
+      },
+    ],
+  },
 
 ]);

@@ -1,5 +1,3 @@
-// BoardList.jsx
-
 import Board from '../Board/Board';
 import BoardForm from '../BoardForm/BoardForm';
 import styles from './styles.module.css';

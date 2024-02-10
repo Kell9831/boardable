@@ -1,7 +1,6 @@
 import * as React from "react";
 import styles from "./styles.module.css";
-import { createBoard } from "../../components/services/board";
-import {  useNavigation, useOutletContext } from "react-router-dom";
+import {  Form, useNavigation, useOutletContext } from "react-router-dom";
 import ColorPicker from "../ColorPicker.jsx/ColorPicker";
 import Button from "../Button";
 
@@ -21,15 +20,6 @@ function BoardForm() {
     setFormData({ ...formData, [name]: value });
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    try {
-      await createBoard(formData);
-      navigation.navigate("/");
-    } catch (error) {
-      console.error("Error creating board:", error);
-    }
-  }
 
   React.useEffect(() => {
     if (navigation.state === "idle" && !error) {
@@ -38,13 +28,16 @@ function BoardForm() {
   }, [navigation.state, error]);
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form} style={{ backgroundColor: formData.color }}>
+    <Form 
+      method="POST"
+      action="/"
+      className={styles.form} style={{ backgroundColor: formData.color }}>
       <label htmlFor="title">Board Title</label>
       <input
         name="title"
-        className={styles.title} // Cambié el nombre de la clase de body a title
+        className={styles.title} 
         aria-label="title"
-        value={formData.title} // Cambié body por title
+        value={formData.title} 
         onChange={handleChange}
         disabled={isSubmitting}
       />
@@ -55,8 +48,9 @@ function BoardForm() {
         </Button>
       </div>
       {error && <p className={styles.error}>{error}</p>}
-    </form>
+    </Form>
   );
 }
 
 export default BoardForm;
+
