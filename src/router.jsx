@@ -6,8 +6,7 @@ import App , { action as rootAction, loader as rootLoader } from "./components/A
 import Error from "./components/error/error";
 import Boards from "./components/Boards";
 import Account from "./components/Account";
-
-
+import BoardPage from "./components/BoardPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +15,7 @@ export const router = createBrowserRouter([
     element: <App />,
     loader: rootLoader,
     action: rootAction,
-    error:<Error/>,
+    errorElement:<Error/>,
     children: [
       {
         index: true,
@@ -55,5 +54,18 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/boards/:boardId", 
+    element: <App />,
+    loader: rootLoader,
+    action: rootAction,
+    error:<Error/>,
+    children: [
+      {
+        index: true,
+        element: <BoardPage />,
+      },
+    ],
+  }
 
 ]);
