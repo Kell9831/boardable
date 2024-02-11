@@ -12,6 +12,7 @@ export async function getCardsByListId(listId) {
   };
 
   const response = await fetch(url, options);
+  console.log(`url ${url} options ${options}`)
 
   if (response.ok) {
     const body = await response.json();

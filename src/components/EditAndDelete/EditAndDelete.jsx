@@ -20,10 +20,10 @@ function EditAndDelete({ onEdit, onDelete, isOpen, toggleMenu, selectTitleInput 
   return (
     <>
     {isOpen && (
-    <div className={style.container} onClick={toggleMenu}>
-        <div className={style.menu}>
-          <p onClick={handleEdit}>Edit</p>
-          <p onClick={handleDelete}>Delete</p>
+    <div onClick={toggleMenu}>
+        <div className={`${style.menu} ${style.container}`} >
+          <button onClick={handleEdit}>Edit</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
     </div>
     )}

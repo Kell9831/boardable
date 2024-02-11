@@ -14,7 +14,7 @@ export async function getBoards() {
   };
 
   const response = await fetch(url, options);
-
+  console.log(`de boards url ${url} options ${options}`)
   if (response.ok) {
     const body = await response.json();
     return body.data;

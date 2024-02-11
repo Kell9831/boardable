@@ -17,6 +17,7 @@
 }
 
 .title p {
+  padding-left: 16px;
   color: #171717;
   font-size: 24px;
   font-style: normal;
@@ -33,5 +34,5 @@
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-8, 32px);
-  padding-left: 12px;
+  padding-left: 16px;
 }

@@ -1,20 +1,38 @@
+import { useState } from "react";
 import Button from "../Button";
-import style from "./style.module.css";
+import style from "./styles.module.css";
+/* eslint-disable react/prop-types */
 
-function FormCard() {
+function FormCard({ onSubmit, onCancel }) {
+  const [title, setTitle] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ title });
+  };
 
     return (
-      <>
       <div className={style.container}>
+      <form onSubmit={handleSubmit}>
         <div className={style.form}>
-          <label htmlFor="listTitle"  className={style.labelText} >
-            <p>Card title</p></label>
-          <input id="listTitle" style={style.input} />
+          <label htmlFor="cardTitle" className={style.labelText}>
+            <p>Card title</p>
+          </label>
+          <input
+            id="cardTitle"
+            style={style.input}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
-        <Button size="sm">Add Card</Button>
-        <button>Cancel</button>
-      </div>
-      </>
+        <Button size="sm" type="submit">
+          Add Card
+        </Button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+      </form>
+    </div>
     );
   }
 
