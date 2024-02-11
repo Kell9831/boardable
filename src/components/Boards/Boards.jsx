@@ -1,5 +1,3 @@
-// Boards.jsx
-
 import styles from "./styles.module.css";
 import BoardList from "../BoardList/BoardList";
 import { getBoards } from "../services/board";

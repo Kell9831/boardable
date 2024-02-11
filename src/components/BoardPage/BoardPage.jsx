@@ -4,10 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import puntosUrl from "../../assets/puntos.svg";
 import EditAndDelete from "../EditAndDelete/EditAndDelete";
-import { deleteNote, editNote, getBoardById } from "../services/board";
+import { deleteBoard, editBoard, getBoardById } from "../services/board";
 import List from "../List/List";
 import FormList from "../FormList";
-import { getListsByBoardId } from "../services/list";
+import { createList, getListsByBoardId } from "../services/list";
 
 function BoardPage() {
   const { boardId } = useParams();
@@ -35,19 +35,6 @@ function BoardPage() {
   }, [boardId]);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const board = await getBoardById(boardId);
-        setBoardData(board);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-
     async function fetchLists() {
       try {
         const fetchedLists = await getListsByBoardId(boardId);
@@ -59,6 +46,18 @@ function BoardPage() {
 
     fetchLists();
   }, [boardId]);
+
+
+
+  const handleCreateList = async (listTitle) => {
+    try {
+      await createList(boardId, { title: listTitle });
+
+    } catch (error) {
+      console.error("Error creating list:", error);
+    }
+  };
+
 
   const handleEditTitle = () => {
     setEditingTitle(true);
@@ -74,16 +73,26 @@ function BoardPage() {
 
   const handleSaveTitle = async () => {
     try {
-      await editNote(boardId, { title: boardData.title });
+      await editBoard(boardId, { title: boardData.title });
       setEditingTitle(false);
     } catch (error) {
       console.error("Error editing title:", error);
     }
   };
 
+  const handleKeyDown = async (e) => {
+    if (e.key === "Enter") {
+      try {
+        await handleSaveTitle();
+      } catch (error) {
+        console.error("Error al guardar el título:", error);
+      }
+    }
+  };
+
   const handleDeleteBoard = async () => {
     try {
-      await deleteNote(boardId);
+      await deleteBoard(boardId);
       // Redireccionar después de eliminar
       return navigate("/");
     } catch (error) {
@@ -116,6 +125,7 @@ function BoardPage() {
             value={boardData.title}
             onChange={handleTitleChange}
             onBlur={handleSaveTitle}
+            onKeyDown={handleKeyDown}
           />
         ) : (
           <>
@@ -135,7 +145,7 @@ function BoardPage() {
         {lists.map((list) => (
           <List key={list.id} title={list.title} listId={list.id}/>
         ))}
-        <FormList />
+        <FormList onCreateList={handleCreateList} boardId={boardId} />
       </div>
     </div>
   );

@@ -7,6 +7,8 @@
   gap: 4px;
   border-radius: var(--rounded-md, 6px);
   background: var(--background, #fff);
+  position: absolute;
+  
 }
 
 .container button{
@@ -19,4 +21,5 @@
   line-height: 20px; /* 142.857% */
  border: none;
  border-radius: var(--rounded-md, 6px);
+ right: -34px;
 }

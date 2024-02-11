@@ -21,7 +21,7 @@ export async function action({ request }) {
     await authProvider.createUser(username, password);
   } catch (error) {
     return {
-      error: "Invalid login attempt",
+      error: "Invalid signup attempt",
     };
   }
 

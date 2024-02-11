@@ -87,7 +87,7 @@ export async function createBoard(boardData) {
 }
 
 //editar un tablero
-export async function editNote(id, updateData) {
+export async function editBoard(id, updateData) {
   const url = `${URL_BASE}/boards/${id}`;
 
   const token = window.localStorage.getItem(tokenKey);
@@ -102,7 +102,7 @@ export async function editNote(id, updateData) {
   };
 
   const response = await fetch(url, options);
-
+  console.log(`esta es la url de editar board  ${url} y esta es option ${options}`)
   if (response.ok) {
     const body = await response.json();
     return body.data;
@@ -117,7 +117,7 @@ export async function editNote(id, updateData) {
   return Promise.reject(new Error(body.error));
 }
 
-export async function deleteNote(id) {
+export async function deleteBoard(id) {
   const url = `${URL_BASE}/boards/${id}`;
   const token = window.localStorage.getItem(tokenKey);
 

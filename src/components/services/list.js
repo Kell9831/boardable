@@ -75,7 +75,7 @@ export async function editList(listId, updateData) {
   };
 
   const response = await fetch(url, options);
-
+console.log(`esta es la url de editar lista ${url} y esta es option ${options}`)
   if (response.ok) {
     const body = await response.json();
     return body.data;
