@@ -33,4 +33,5 @@
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-8, 32px);
+  padding-left: 12px;
 }

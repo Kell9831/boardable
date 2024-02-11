@@ -62,7 +62,6 @@ function Signup(){
           <input
             id="username"
             type="text"
-            placeholder="some-user"
             name="username"
             required
             className={styles.input}

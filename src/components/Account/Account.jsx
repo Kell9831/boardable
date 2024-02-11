@@ -7,6 +7,7 @@ import {
   redirect,
   useActionData,
   useLocation,
+  useNavigate,
   useNavigation,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -31,6 +32,7 @@ export async function action({ request }) {
 
 function Account() {
   const actionData = useActionData();
+  const navigate = useNavigate();
   const navigation = useNavigation();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -73,7 +75,7 @@ function Account() {
     try {
       if (window.confirm("Are you sure you want to delete your account?")) {
         await deleteUserProfile();
-       return redirect("/");
+       return navigate("/login");
       }
     } catch (error) {
       console.error("Error deleting user profile:", error);

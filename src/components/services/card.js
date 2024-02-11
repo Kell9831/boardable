@@ -1,12 +1,10 @@
-import { redirect } from "react-router-dom";
 import { authProvider } from "../../auth";
-import { URL_BASE, tokenKey } from "../../constants";
+import { URL_BASE } from "../../constants";
 
-//obtener todos los tableros que le pertenecen al usuario logueado
-export async function getBoards() {
+export async function getCardsByListId(listId) {
   const token = authProvider.token;
 
-  const url = `${URL_BASE}/boards`;
+  const url = `${URL_BASE}/lists/${listId}/cards`;
   const options = {
     headers: {
       Authorization: `bearer ${token}`,
@@ -22,48 +20,20 @@ export async function getBoards() {
 
   if (response.status === 401) {
     authProvider.logout();
-    throw redirect("/login");
+    throw new Error("Unauthorized");
   }
 
   const body = await response.json();
-  return Promise.reject(new Error(body.error));
+  throw new Error(body.error);
 }
 
-//obtener el board por su id
-export async function getBoardById(boardId) {
+export async function createCard(listId, cardData) {
   const token = authProvider.token;
 
-  const url = `${URL_BASE}/boards/${boardId}`;
-  const options = {
-    headers: {
-      Authorization: `bearer ${token}`,
-    },
-  };
-
-  const response = await fetch(url, options);
-
-  if (response.ok) {
-    const body = await response.json();
-    return body.data;
-  }
-
-  if (response.status === 401) {
-    authProvider.logout();
-    throw redirect("/login");
-  }
-
-  const body = await response.json();
-  return Promise.reject(new Error(body.error));
-}
-
-//crear un tablero
-export async function createBoard(boardData) {
-  const url = `${URL_BASE}/boards`;
-  const token = window.localStorage.getItem(tokenKey);
-
+  const url = `${URL_BASE}/lists/${listId}/cards`;
   const options = {
     method: "POST",
-    body: JSON.stringify(boardData),
+    body: JSON.stringify(cardData),
     headers: {
       "Content-Type": "application/json",
       Authorization: `bearer ${token}`,
@@ -79,19 +49,17 @@ export async function createBoard(boardData) {
 
   if (response.status === 401) {
     authProvider.logout();
-    throw redirect("/login");
+    throw new Error("Unauthorized");
   }
 
   const body = await response.json();
-  return Promise.reject(new Error(body.error));
+  throw new Error(body.error);
 }
 
-//editar un tablero
-export async function editNote(id, updateData) {
-  const url = `${URL_BASE}/boards/${id}`;
+export async function editCard(cardId, updateData) {
+  const token = authProvider.token;
 
-  const token = window.localStorage.getItem(tokenKey);
-
+  const url = `${URL_BASE}/cards/${cardId}`;
   const options = {
     method: "PATCH",
     body: JSON.stringify(updateData),
@@ -110,17 +78,17 @@ export async function editNote(id, updateData) {
 
   if (response.status === 401) {
     authProvider.logout();
-    throw redirect("/login");
+    throw new Error("Unauthorized");
   }
 
   const body = await response.json();
-  return Promise.reject(new Error(body.error));
+  throw new Error(body.error);
 }
 
-export async function deleteNote(id) {
-  const url = `${URL_BASE}/boards/${id}`;
-  const token = window.localStorage.getItem(tokenKey);
+export async function deleteCard(cardId) {
+  const token = authProvider.token;
 
+  const url = `${URL_BASE}/cards/${cardId}`;
   const options = {
     method: "DELETE",
     headers: {
@@ -137,9 +105,9 @@ export async function deleteNote(id) {
 
   if (response.status === 401) {
     authProvider.logout();
-    throw redirect("/login");
+    throw new Error("Unauthorized");
   }
 
   const body = await response.json();
-  return Promise.reject(new Error(body.error));
+  throw new Error(body.error);
 }
