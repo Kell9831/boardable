@@ -1,55 +1,61 @@
 .container {
-    display: flex;
-    width: 280px;
-    padding: var(--spacing-2, 8px);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-2, 8px);
-    border-radius: var(--rounded-md, 6px);
-    background: var(--muted, #f5f5f5);
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-2, 8px);
-    align-self: stretch;
-  }
-  
-  .form label {
-    display: flex;
-    align-items: flex-start;
-    align-self: stretch;
-  }
-  
-  .label-text p {
-    color: var(--foreground, #171717);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 14px; /* 100% */
-  }
-  
-  .form input {
-    display: flex;
-    height: 40px;
-    padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
-    align-items: flex-start;
-    gap: 4px;
-    align-self: stretch;
-    border-radius: var(--rounded-md, 6px);
-    border: 1px solid var(--border, #d4d4d4);
-    background: var(--background, #fff);
-  }
-  
-  .button {
-    display: flex;
-    height: 36px;
-    padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-2, 8px);
-  }
-  
+  display: flex;
+  width: 250px;
+  padding: var(--spacing-2, 8px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2, 8px);
+  border-radius: var(--rounded-md, 6px);
+  background: var(--muted, #f5f5f5);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2, 8px);
+  align-self: stretch;
+}
+
+.form label {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.title {
+  color: var(--foreground, #171717);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 100% */
+}
+
+.form input {
+  display: flex;
+  height: 40px;
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: var(--rounded-md, 6px);
+  border: 1px solid var(--border, #d4d4d4);
+  background: var(--background, #fff);
+}
+
+.button {
+  display: flex;
+  height: 36px;
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2, 8px);
+  margin-top: 10px;
+}

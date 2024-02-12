@@ -16,7 +16,7 @@ function FormCard({ onSubmit, onCancel }) {
       <form onSubmit={handleSubmit}>
         <div className={style.form}>
           <label htmlFor="cardTitle" className={style.labelText}>
-            <p>Card title</p>
+            <p className={style.title}>Card title</p>
           </label>
           <input
             id="cardTitle"
@@ -25,12 +25,18 @@ function FormCard({ onSubmit, onCancel }) {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
+        <div className={style.buttons}>
         <Button size="sm" type="submit">
           Add Card
         </Button>
-        <button type="button" onClick={onCancel}>
+        <Button 
+          size="sm"
+          variant= "secondary"  
+          type="button" 
+          onClick={onCancel}>
           Cancel
-        </button>
+        </Button>
+        </div>
       </form>
     </div>
     );
