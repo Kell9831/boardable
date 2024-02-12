@@ -3,16 +3,14 @@ import eclipseUrl from "../../assets/eclipse.svg";
 import styles from "./styles.module.css";
 /* eslint-disable react/prop-types */
 const colors = [
-  "#FFFFFF",
-  "#F28B82",
-  "#FBBC04",
-  "#FFF475",
-  "#CCFF90",
-  "#A7FFEB",
-  "#CBF0F8",
-  "#AECBFA",
-  "#D7AEFB",
-  "#FDCFE8",
+  "#E2E8F0",
+  "#FECACA",
+  "#FED7AA",
+  "#FEF08A",
+  "#D9F99D",
+  "#BFDBFE",
+  "#FBCFE8",
+  "#DDD6FE",
 ];
 
 function ColorPicker({ name, onChange }) {

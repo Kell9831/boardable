@@ -3,10 +3,11 @@ import styles from "./styles.module.css";
 import {  Form, useNavigation, useOutletContext } from "react-router-dom";
 import ColorPicker from "../ColorPicker.jsx/ColorPicker";
 import Button from "../Button";
+import { createBoard } from "../services/board";
 
 const initialValues = {
   title: "",
-  color: "#FFFFFF",
+  color: "#E2E8F0",
 };
 
 function BoardForm() {
@@ -20,6 +21,17 @@ function BoardForm() {
     setFormData({ ...formData, [name]: value });
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await createBoard(formData); 
+      setFormData(initialValues);
+      window.location.reload();
+      // Reinicia el formulario después de la creación exitosa
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
 
   React.useEffect(() => {
     if (navigation.state === "idle" && !error) {
@@ -31,6 +43,7 @@ function BoardForm() {
     <Form 
       method="POST"
       action="/"
+      onSubmit={handleSubmit}
       className={styles.form} style={{ backgroundColor: formData.color }}>
       <label htmlFor="title">Board Title</label>
       <input
@@ -42,7 +55,7 @@ function BoardForm() {
         disabled={isSubmitting}
       />
       <div className={styles.footer}>
-        <ColorPicker name="color" onChange={handleChange} />
+        <ColorPicker name="color" value={formData.color}  onChange={handleChange} />
         <Button size="sm" variant="primary" type="submit" disabled={isSubmitting} style={{ marginLeft: "auto" }}>
           {isSubmitting ? "Creating..." : "Create"}
         </Button>

@@ -38,9 +38,7 @@ function App() {
   return (
     <div className={styles.container}>
       <Header />
-      <main className={styles.main}>
         <Outlet context={actionData?.error} />
-      </main>
     </div>
   );
 }

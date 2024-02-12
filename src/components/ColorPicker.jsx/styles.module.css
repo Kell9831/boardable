@@ -21,9 +21,9 @@
     flex-wrap: wrap;
     gap: 5px;
     padding: 5px;
-    width: 155px;
+    width: 125px;
     position: absolute;
-    transform: translateY(calc(-100% - 5px));
+    transform: translateY(calc( 35px));
   }
   
   .color {

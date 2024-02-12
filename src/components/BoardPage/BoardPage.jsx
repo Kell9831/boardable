@@ -141,13 +141,16 @@ function BoardPage() {
           selectTitleInput={selectTitleInput}
         />
       </div>
-      <div className={styles.listas}>
+     
+      <div className={styles.containerListas}>
+      <div className={styles.scrollContainer}>
         {lists.map((list) => (
           <List key={list.id} title={list.title} listId={list.id}/>
         ))}
         <FormList onCreateList={handleCreateList} boardId={boardId} />
       </div>
-    </div>
+   </div>
+  </div>
   );
 }
 

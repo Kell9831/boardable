@@ -1,9 +1,8 @@
 .container {
   display: flex;
   height: 928px;
-  max-width: var(--width-7xl, 1280px);
-  padding: var(--spacing-4, 12px) 0px;
-  margin-left: 80px;
+  max-width: 1408px;
+  padding: var(--spacing-4, 16px) 0px;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-8, 32px);
@@ -14,6 +13,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-4, 16px);
+  margin-left: 48px;
 }
 
 .title p {
@@ -30,9 +30,15 @@
   height: 24px;
 }
 
-.listas {
+.containerListas {
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  overflow-x: auto; /* Habilita el scroll horizontal */
+  padding-left: 50px; /* Espacio a la izquierda */
+}
+
+.scrollContainer {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-8, 32px);
-  padding-left: 16px;
+  gap: 32px; /* Espacio entre las listas */
+  width: max-content; /* Ancho máximo */
 }

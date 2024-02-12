@@ -1,8 +1,8 @@
 .container {
   display: flex;
   height: var(--spacing-24, 96px);
-  max-width: var(--width-7xl, 1280px);
-  padding: 27px 0px;
+  max-width: var(--width-7xl, 1350px);
+  padding-left: 35px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
